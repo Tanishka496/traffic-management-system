@@ -2,25 +2,22 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #4b4f56;
-  background:
-    radial-gradient(circle at top left, rgba(255, 214, 151, 0.52), transparent 28%),
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.86), transparent 24%),
-    linear-gradient(180deg, #fff8ed 0%, #fffdf9 100%);
+  color: #111827;
+  background: #f1f5f9;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --heading-color: #1d2a39;
-  --muted-text: #66707a;
-  --accent-strong: #d88a1d;
-  --panel-bg: rgba(255, 252, 247, 0.92);
-  --panel-border: rgba(210, 177, 120, 0.26);
-  --panel-shadow: 0 24px 60px rgba(132, 106, 57, 0.12);
-  --soft-accent: rgba(245, 163, 38, 0.14);
-  --input-bg: rgba(255, 255, 255, 0.86);
-  --input-border: rgba(204, 180, 142, 0.48);
+  --heading-color: #0f172a;
+  --muted-text: #374151;
+  --accent-strong: #14b8a6;
+  --panel-bg: #ffffff;
+  --panel-border: #dbe3ea;
+  --panel-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --soft-accent: rgba(20, 184, 166, 0.14);
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
 }
 
 * {
@@ -35,6 +32,7 @@ body {
   margin: 0;
   min-width: 320px;
   color: var(--heading-color);
+  background: #f1f5f9;
 }
 
 #root {

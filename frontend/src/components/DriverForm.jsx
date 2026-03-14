@@ -45,8 +45,7 @@ function DriverForm({ onDriverAdded }) {
   return (
     <div className="form-panel">
       <div className="form-header">
-        <h3>Register New Driver</h3>
-        <span className="pill-count">Form ready</span>
+        <h3>Driver Registration Form</h3>
       </div>
 
       <form className="driver-form" onSubmit={handleSubmit}>
