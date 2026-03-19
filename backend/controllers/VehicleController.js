@@ -4,15 +4,14 @@ exports.addVehicle = (req, res) => {
 
   const vehicleData = req.body;
 
-  Vehicle.addVehicle(vehicleData, (err, result) => {
-
+exports.getVehicles = (req, res) => {
+  Vehicle.getVehicles((err, results) => {
     if (err) {
-      res.status(500).json(err);
-    } else {
-      res.json({ message: "Vehicle added successfully" });
+      return res.status(500).json(err);
     }
-
+    res.json(results);
   });
+};
 
 };
 
