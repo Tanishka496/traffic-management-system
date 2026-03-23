@@ -6,7 +6,7 @@ export default defineConfig({
   cacheDir: '.vite',
   server: {
     proxy: {
-      '/drivers': {
+      '/api': {
         target: 'http://localhost:5000',
         changeOrigin: true,
       },

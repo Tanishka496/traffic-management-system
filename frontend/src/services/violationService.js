@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/violations";
+const API = "/api/violations";
 
 export const getViolations = () => axios.get(API);
 export const addViolation = (data) => axios.post(API, data);
