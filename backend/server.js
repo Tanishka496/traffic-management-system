@@ -7,15 +7,20 @@ const challanRoutes = require("./routes/challanRoutes");
 const driverRoutes = require("./routes/driverRoutes");
 const violationRoutes = require("./routes/violationRoutes");
 const vehicleRoutes = require("./routes/vehicleRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 app.use(cors());
 
 app.use(express.json());
 
 app.use("/api/challan", challanRoutes);
+app.use("/api/challans", challanRoutes);
 app.use("/api/drivers", driverRoutes);
 app.use("/api/violations", violationRoutes);
 app.use("/api/vehicles", vehicleRoutes);
+app.use("/api/payments", paymentRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 const PORT = process.env.PORT || 5000;
 

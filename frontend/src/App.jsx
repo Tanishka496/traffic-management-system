@@ -1,37 +1,34 @@
-import ChallanForm from './ChallanForm';
 import "./App.css";
-import Drivers from "./pages/Drivers";
-import AddViolation from "./pages/violations/AddViolation";
-import ViolationList from "./pages/violations/ViolationList";
 import { useState } from "react";
-import AddVehicle from "./pages/vehicles/AddVehicle";
-import VehicleList from "./pages/vehicles/VehicleList";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./pages/Dashboard";
+import Drivers from "./pages/Drivers";
+import Vehicles from "./pages/Vehicles";
+import Violations from "./pages/Violations";
+import Challans from "./pages/Challans";
+import Payments from "./pages/Payments";
 
 function App() {
-  const [vehicleRefreshKey, setVehicleRefreshKey] = useState(0);
+  const [activeSection, setActiveSection] = useState("dashboard");
+
+  const renderActiveSection = () => {
+    if (activeSection === "dashboard") return <Dashboard />;
+    if (activeSection === "drivers") return <Drivers />;
+    if (activeSection === "vehicles") return <Vehicles />;
+    if (activeSection === "violations") return <Violations />;
+    if (activeSection === "challans") return <Challans />;
+    if (activeSection === "payments") return <Payments />;
+    return <Dashboard />;
+  };
 
   return (
-    <main className="app-shell">
-      <section className="module-card">
-        <h2>Challan Module</h2>
-        <ChallanForm />
-      </section>
-
-      <section>
-        <Drivers />
-      </section>
-
-      <section className="module-card">
-        <h2>Violation Module</h2>
-        <AddViolation />
-        <ViolationList />
-      </section>
-
-      <section className="module-card">
-        <h2>Vehicle Module</h2>
-        <AddVehicle onAdded={() => setVehicleRefreshKey((prev) => prev + 1)} />
-        <VehicleList refreshKey={vehicleRefreshKey} />
-      </section>
+    <main className="app-layout">
+      <Navbar />
+      <div className="app-shell">
+        <Sidebar active={activeSection} onChange={setActiveSection} />
+        <section className="app-content">{renderActiveSection()}</section>
+      </div>
     </main>
   );
 }

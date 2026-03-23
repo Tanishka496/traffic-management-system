@@ -1,7 +1,77 @@
+.app-layout {
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.nav-header {
+  background: linear-gradient(120deg, #0f766e, #0e7490);
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+.nav-header h1 {
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.nav-header p {
+  margin: 0;
+  opacity: 0.9;
+}
+
 .app-shell {
   display: grid;
-  gap: 24px;
-  padding: 24px;
+  grid-template-columns: 230px 1fr;
+  gap: 16px;
+}
+
+.app-sidebar {
+  background: #ffffff;
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: var(--panel-shadow);
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.sidebar-item {
+  text-align: left;
+  border: 1px solid #d9e3ea;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: var(--heading-color);
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.sidebar-item.active {
+  background: #0ea5a4;
+  border-color: #0ea5a4;
+  color: #ffffff;
+}
+
+.app-content {
+  min-width: 0;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.stat-card p {
+  margin-bottom: 8px;
+  color: var(--muted-text);
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 1.8rem;
 }
 
 .drivers-page-container {
@@ -174,8 +244,22 @@
 }
 
 @media (max-width: 720px) {
-  .drivers-page-container {
-    padding: 20px 12px;
+  .app-layout {
+    padding: 10px;
+  }
+
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .app-sidebar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sidebar-item {
+    text-align: center;
+    padding: 9px 6px;
+    font-size: 0.9rem;
   }
 
   .module-card {
