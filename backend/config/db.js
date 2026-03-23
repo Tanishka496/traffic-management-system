@@ -1,6 +1,5 @@
 const mysql = require('mysql2');
 
-// Create a connection pool
 const db = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
@@ -12,13 +11,12 @@ const db = mysql.createPool({
   queueLimit: 0
 });
 
-// Test the connection
 db.getConnection((err, connection) => {
   if (err) {
     console.error('Database connection failed:', err.message);
   } else {
     console.log('Connected to MySQL database successfully!');
-    connection.release(); // release connection back to pool
+    connection.release();
   }
 });
 

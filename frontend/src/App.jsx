@@ -1,6 +1,8 @@
 import ChallanForm from './ChallanForm';
 import "./App.css";
 import Drivers from "./pages/Drivers";
+import AddViolation from "./pages/violations/AddViolation";
+import ViolationList from "./pages/violations/ViolationList";
 
 function App() {
   return (
@@ -12,6 +14,12 @@ function App() {
 
       <section>
         <Drivers />
+      </section>
+
+      <section className="module-card">
+        <h2>Violation Module</h2>
+        <AddViolation />
+        <ViolationList />
       </section>
     </main>
   );

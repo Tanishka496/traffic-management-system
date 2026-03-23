@@ -5,6 +5,7 @@ const app = express();
 require("./config/db");
 const challanRoutes = require("./routes/challanRoutes");
 const driverRoutes = require("./routes/driverRoutes");
+const violationRoutes = require("./routes/violationRoutes");
 
 app.use(cors());
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use("/api/challan", challanRoutes);
 app.use("/api/drivers", driverRoutes);
+app.use("/api/violations", violationRoutes);
 
 const PORT = process.env.PORT || 5000;
 
