@@ -2,10 +2,11 @@ const mysql = require('mysql2');
 
 // Create a connection pool
 const db = mysql.createPool({
-  host: 'localhost',           // MySQL server host
-  user: 'root',       // replace with your MySQL username (e.g., root)
-  password: 'Yamica@1234',   // replace with your MySQL password
-  database: 'traffic_management', // database name
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'traffic_management',
+  port: Number(process.env.DB_PORT || 3306),
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
