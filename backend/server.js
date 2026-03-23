@@ -9,6 +9,7 @@ const violationRoutes = require("./routes/violationRoutes");
 const vehicleRoutes = require("./routes/vehicleRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 app.use(cors());
 
@@ -21,6 +22,7 @@ app.use("/api/violations", violationRoutes);
 app.use("/api/vehicles", vehicleRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/auth", authRoutes);
 
 const PORT = process.env.PORT || 5000;
 

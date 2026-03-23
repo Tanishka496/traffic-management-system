@@ -71,6 +71,17 @@ Frontend module structure:
 - `GET|POST /api/vehicles`
 - `GET|POST /api/payments`
 - `GET /api/dashboard/summary`
+- `POST /api/auth/login`
+
+## Login
+
+- Frontend now opens with a login page.
+- Default credentials:
+	- Username: `admin`
+	- Password: `admin123`
+- Override with environment variables in backend runtime:
+	- `APP_USERNAME`
+	- `APP_PASSWORD`
 
 ## Setup
 
