@@ -14,7 +14,7 @@ const ChallanForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/challan/add', {
+      const response = await fetch('http://localhost:5000/api/challan/add', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

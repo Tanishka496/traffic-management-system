@@ -10,6 +10,10 @@ export default defineConfig({
         target: 'http://localhost:5000',
         changeOrigin: true,
       },
+      '/drivers': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
     },
   },
   plugins: [react()],

@@ -24,6 +24,10 @@ app.use("/api/payments", paymentRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/auth", authRoutes);
 
+// Keep original module paths so friend modules run without logic changes.
+app.use("/drivers", driverRoutes);
+app.use("/violations", violationRoutes);
+
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => {
