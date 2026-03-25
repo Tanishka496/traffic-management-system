@@ -2,6 +2,18 @@ use traffic_management;
 CREATE DATABASE IF NOT EXISTS traffic_management;
 USE traffic_management;
 
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(80) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `full_name` varchar(120) DEFAULT NULL,
+  `role` varchar(40) DEFAULT 'member',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- 1. Create tables with NO foreign keys first
 DROP TABLE IF EXISTS `violation`;
 CREATE TABLE `violation` (

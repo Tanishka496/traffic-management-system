@@ -32,56 +32,61 @@ function AddVehicle({ onAdded }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="driver-form">
-      <div className="field">
-        <label htmlFor="vehicle_number">Vehicle Number</label>
-        <input
-          id="vehicle_number"
-          name="vehicle_number"
-          value={form.vehicle_number}
-          onChange={handleChange}
-          placeholder="MH12AB1234"
-          required
-        />
-      </div>
+    <div className="module-card">
+      <h2>Add Vehicle</h2>
+      <form onSubmit={handleSubmit} className="driver-form">
+        <div className="field">
+          <label htmlFor="vehicle_number">Vehicle Number</label>
+          <input
+            id="vehicle_number"
+            name="vehicle_number"
+            value={form.vehicle_number}
+            onChange={handleChange}
+            placeholder="MH12AB1234"
+            required
+          />
+        </div>
 
-      <div className="field">
-        <label htmlFor="owner_name">Owner Name</label>
-        <input
-          id="owner_name"
-          name="owner_name"
-          value={form.owner_name}
-          onChange={handleChange}
-          required
-        />
-      </div>
+        <div className="field">
+          <label htmlFor="owner_name">Owner Name</label>
+          <input
+            id="owner_name"
+            name="owner_name"
+            value={form.owner_name}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <div className="field">
-        <label htmlFor="vehicle_type">Vehicle Type</label>
-        <input
-          id="vehicle_type"
-          name="vehicle_type"
-          value={form.vehicle_type}
-          onChange={handleChange}
-          placeholder="Car / Bike"
-          required
-        />
-      </div>
+        <div className="field">
+          <label htmlFor="vehicle_type">Vehicle Type</label>
+          <input
+            id="vehicle_type"
+            name="vehicle_type"
+            value={form.vehicle_type}
+            onChange={handleChange}
+            placeholder="Car / Bike"
+            required
+          />
+        </div>
 
-      <div className="field">
-        <label htmlFor="driver_id">Driver ID (Optional)</label>
-        <input
-          id="driver_id"
-          name="driver_id"
-          value={form.driver_id}
-          onChange={handleChange}
-          type="number"
-          min="1"
-        />
-      </div>
+        <div className="field">
+          <label htmlFor="driver_id">Driver ID (Optional)</label>
+          <input
+            id="driver_id"
+            name="driver_id"
+            value={form.driver_id}
+            onChange={handleChange}
+            type="number"
+            min="1"
+          />
+        </div>
 
-      <button type="submit" className="submit-btn">Add Vehicle</button>
-    </form>
+        <button type="submit" className="submit-btn">
+          Add Vehicle
+        </button>
+      </form>
+    </div>
   );
 }
 

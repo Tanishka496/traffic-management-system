@@ -1,10 +1,10 @@
 const SECTIONS = [
-  { key: "dashboard", label: "Dashboard" },
-  { key: "drivers", label: "Drivers" },
-  { key: "vehicles", label: "Vehicles" },
-  { key: "violations", label: "Violations" },
-  { key: "challans", label: "Challans" },
-  { key: "payments", label: "Payments" },
+  { key: "dashboard", label: "Dashboard", icon: "DB", meta: "Live status" },
+  { key: "drivers", label: "Drivers", icon: "DR", meta: "Identity" },
+  { key: "vehicles", label: "Vehicles", icon: "VH", meta: "Fleet" },
+  { key: "violations", label: "Violations", icon: "VI", meta: "Rules" },
+  { key: "challans", label: "Challans", icon: "CH", meta: "Enforcement" },
+  { key: "payments", label: "Payments", icon: "PM", meta: "Collections" },
 ];
 
 function Sidebar({ active, onChange }) {
@@ -13,11 +13,17 @@ function Sidebar({ active, onChange }) {
       {SECTIONS.map((section) => (
         <button
           key={section.key}
-          className={active === section.key ? "sidebar-item active" : "sidebar-item"}
+          className={
+            active === section.key ? "sidebar-item active" : "sidebar-item"
+          }
           onClick={() => onChange(section.key)}
           type="button"
         >
-          {section.label}
+          <span className="item-icon">{section.icon}</span>
+          <span className="item-copy">
+            <strong>{section.label}</strong>
+            <small>{section.meta}</small>
+          </span>
         </button>
       ))}
     </aside>

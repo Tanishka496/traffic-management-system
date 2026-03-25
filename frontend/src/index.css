@@ -1,27 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&family=Poppins:wght@400;500;600;700&display=swap");
+
 :root {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", sans-serif;
+  font-family: "Inter", "Segoe UI", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #111827;
-  background: #f1f5f9;
+  color: #f8fafc;
+  background: #020617;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --heading-color: #0f172a;
-  --muted-text: #374151;
-  --accent-strong: #14b8a6;
-  --panel-bg: #ffffff;
-  --panel-border: #dbe3ea;
-  --panel-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-  --soft-accent: rgba(20, 184, 166, 0.14);
-  --input-bg: #ffffff;
-  --input-border: #cbd5e1;
+  --bg-core: #020617;
+  --bg-layer: #0b1220;
+  --bg-soft: #111827;
+  --panel-bg: rgba(255, 255, 255, 0.05);
+  --panel-border: rgba(255, 255, 255, 0.12);
+  --panel-shadow: 0 16px 36px rgba(2, 6, 23, 0.68);
+  --line-glow: rgba(34, 211, 238, 0.32);
+  --text-strong: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #22d3ee;
+  --accent-2: #38bdf8;
+  --accent-danger: #ef4444;
+  --accent-warning: #f97316;
+  --accent-success: #22c55e;
+  --accent-info: #3b82f6;
+  --input-bg: rgba(2, 6, 23, 0.6);
+  --input-border: rgba(148, 163, 184, 0.36);
 }
 
 * {
   box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
 }
 
 html {
@@ -31,26 +47,26 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  color: var(--heading-color);
-  background: #f1f5f9;
-}
-
-#root {
-  min-height: 100vh;
+  color: var(--text-strong);
+  background:
+    radial-gradient(circle at 8% 14%, rgba(34, 211, 238, 0.16), transparent 32%),
+    radial-gradient(circle at 88% 10%, rgba(56, 189, 248, 0.14), transparent 34%),
+    linear-gradient(136deg, #020617 0%, #0b1220 45%, #111827 100%);
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: Georgia, "Times New Roman", serif;
+  margin-top: 0;
+  color: var(--text-strong);
+  font-family: "Orbitron", "Poppins", sans-serif;
+  letter-spacing: 0.02em;
 }
 
 h1 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1;
-  margin: 0;
-  color: var(--heading-color);
+  font-size: clamp(1.7rem, 2.7vw, 2.35rem);
+  line-height: 1.1;
 }
 
 h2,
@@ -60,11 +76,22 @@ p {
   margin-top: 0;
 }
 
+p {
+  color: var(--text-muted);
+}
+
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
 a {
   color: inherit;
+}
+
+::selection {
+  background: rgba(28, 227, 207, 0.36);
+  color: #031012;
 }

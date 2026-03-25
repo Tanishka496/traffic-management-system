@@ -11,20 +11,20 @@ Unified team integration branch containing all module work:
 ## Team Module Split (5 Members)
 
 1. Driver Management
-	- Tables: `driver`
-	- Files: `frontend/src/pages/drivers/*`, `backend/routes/driverRoutes.js`
+   - Tables: `driver`
+   - Files: `frontend/src/pages/drivers/*`, `backend/routes/driverRoutes.js`
 2. Vehicle Management
-	- Tables: `vehicle`
-	- Files: `frontend/src/pages/vehicles/*`, `backend/routes/vehicleRoutes.js`
+   - Tables: `vehicle`
+   - Files: `frontend/src/pages/vehicles/*`, `backend/routes/vehicleRoutes.js`
 3. Violation Management
-	- Tables: `violation`
-	- Files: `frontend/src/pages/violations/*`, `backend/routes/violationRoutes.js`
+   - Tables: `violation`
+   - Files: `frontend/src/pages/violations/*`, `backend/routes/violationRoutes.js`
 4. Challan Management
-	- Tables: `challan`
-	- Files: `frontend/src/pages/challans/*`, `backend/routes/challanRoutes.js`
+   - Tables: `challan`
+   - Files: `frontend/src/pages/challans/*`, `backend/routes/challanRoutes.js`
 5. Payment + Dashboard
-	- Tables: `payment`
-	- Files: `frontend/src/pages/payments/*`, `frontend/src/pages/Dashboard.jsx`, `backend/routes/paymentRoutes.js`, `backend/routes/dashboardRoutes.js`
+   - Tables: `payment`
+   - Files: `frontend/src/pages/payments/*`, `frontend/src/pages/Dashboard.jsx`, `backend/routes/paymentRoutes.js`, `backend/routes/dashboardRoutes.js`
 
 ## Branch Strategy
 
@@ -76,22 +76,24 @@ Frontend module structure:
 ## Login
 
 - Frontend now opens with a login page.
+- Login page includes a **Register New Member** option.
+- Registered users are stored in the `users` table and can login with their own credentials.
 - Default credentials:
-	- Username: `admin`
-	- Password: `admin123`
+  - Username: `admin`
+  - Password: `admin123`
 - Override with environment variables in backend runtime:
-	- `APP_USERNAME`
-	- `APP_PASSWORD`
+  - `APP_USERNAME`
+  - `APP_PASSWORD`
 
 ## Setup
 
 1. Import `database/schema.sql` into MySQL.
 2. Configure DB environment variables (optional, defaults are provided):
-	- `DB_HOST`
-	- `DB_USER`
-	- `DB_PASSWORD`
-	- `DB_NAME`
-	- `DB_PORT`
+   - `DB_HOST`
+   - `DB_USER`
+   - `DB_PASSWORD`
+   - `DB_NAME`
+   - `DB_PORT`
 3. Install dependencies:
 
 ```bash

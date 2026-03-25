@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { getViolations, deleteViolation } from "../../services/violationService";
+import {
+  getViolations,
+  deleteViolation,
+} from "../../services/violationService";
 
 export default function ViolationList() {
   const [violations, setViolations] = useState([]);
@@ -19,14 +22,14 @@ export default function ViolationList() {
   }, []);
 
   return (
-    <div style={{ padding: "30px" }}>
+    <div className="module-card">
       <h2>Violation List</h2>
-      <table border="1" cellPadding="10">
+      <table className="drivers-table">
         <thead>
           <tr>
             <th>ID</th>
             <th>Violation Type</th>
-            <th>Fine Amount (₹)</th>
+            <th>Fine Amount (Rs)</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -42,7 +45,10 @@ export default function ViolationList() {
                 <td>{v.violation_type}</td>
                 <td>{v.fine_amount}</td>
                 <td>
-                  <button onClick={() => handleDelete(v.violation_id)}>
+                  <button
+                    className="danger-btn"
+                    onClick={() => handleDelete(v.violation_id)}
+                  >
                     Delete
                   </button>
                 </td>

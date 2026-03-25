@@ -19,11 +19,11 @@ export default function AddViolation() {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
+    <div className="module-card">
       <h2>Add Violation</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Violation Type:</label><br />
+      <form onSubmit={handleSubmit} className="driver-form">
+        <div className="field">
+          <label>Violation Type:</label>
           <input
             type="text"
             value={violation_type}
@@ -32,9 +32,8 @@ export default function AddViolation() {
             required
           />
         </div>
-        <br />
-        <div>
-          <label>Fine Amount (₹):</label><br />
+        <div className="field">
+          <label>Fine Amount (Rs):</label>
           <input
             type="number"
             value={fine_amount}
@@ -43,10 +42,11 @@ export default function AddViolation() {
             required
           />
         </div>
-        <br />
-        <button type="submit">Add Violation</button>
+        <button className="submit-btn" type="submit">
+          Add Violation
+        </button>
       </form>
-      {message && <p style={{ color: "green" }}>{message}</p>}
+      {message && <p className="feedback success">{message}</p>}
     </div>
   );
 }

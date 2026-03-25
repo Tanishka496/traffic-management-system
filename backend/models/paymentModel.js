@@ -4,7 +4,11 @@ const addPayment = (payment, callback) => {
   const sql =
     "INSERT INTO payment (challan_id, amount, payment_date, payment_method) VALUES (?, ?, ?, ?)";
   const paymentDate = payment.payment_date || new Date();
-  db.query(sql, [payment.challan_id, payment.amount, paymentDate, payment.payment_method], callback);
+  db.query(
+    sql,
+    [payment.challan_id, payment.amount, paymentDate, payment.payment_method],
+    callback,
+  );
 };
 
 const getPayments = (callback) => {

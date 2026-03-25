@@ -6,7 +6,9 @@ exports.createChallan = (req, res) => {
       return res.status(500).json({ error: err.message });
     }
 
-    return res.status(201).json({ message: "Challan created successfully", id: result.insertId });
+    return res
+      .status(201)
+      .json({ message: "Challan created successfully", id: result.insertId });
   });
 };
 

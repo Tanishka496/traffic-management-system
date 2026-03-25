@@ -6,8 +6,14 @@ const addChallan = (challan, callback) => {
   const challanDate = challan.challan_date || new Date();
   db.query(
     sql,
-    [challan.vehicle_id, challan.violation_id, challan.officer_id, challanDate, challan.status || "Pending"],
-    callback
+    [
+      challan.vehicle_id,
+      challan.violation_id,
+      challan.officer_id,
+      challanDate,
+      challan.status || "Pending",
+    ],
+    callback,
   );
 };
 

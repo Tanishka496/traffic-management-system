@@ -23,7 +23,13 @@ function ChallanList({ refreshKey = 0 }) {
     loadData();
   }, [refreshKey]);
 
-  return <Table columns={columns} rows={rows} emptyMessage="No challans available." />;
+  return (
+    <Table
+      columns={columns}
+      rows={rows}
+      emptyMessage="No challans available."
+    />
+  );
 }
 
 export default ChallanList;

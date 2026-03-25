@@ -21,7 +21,9 @@ function DriverList({ refreshKey = 0 }) {
     loadData();
   }, [refreshKey]);
 
-  return <Table columns={columns} rows={rows} emptyMessage="No drivers available." />;
+  return (
+    <Table columns={columns} rows={rows} emptyMessage="No drivers available." />
+  );
 }
 
 export default DriverList;

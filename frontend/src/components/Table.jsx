@@ -15,7 +15,16 @@ function Table({ columns, rows, emptyMessage = "No records found." }) {
         </thead>
         <tbody>
           {rows.map((row, index) => (
-            <tr key={row.id || row.challan_id || row.payment_id || row.vehicle_id || row.violation_id || index}>
+            <tr
+              key={
+                row.id ||
+                row.challan_id ||
+                row.payment_id ||
+                row.vehicle_id ||
+                row.violation_id ||
+                index
+              }
+            >
               {columns.map((column) => (
                 <td key={column.key}>{row[column.key] ?? "-"}</td>
               ))}
