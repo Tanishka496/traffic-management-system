@@ -518,6 +518,21 @@
   box-shadow: inset 0 0 0 1px rgba(251, 146, 60, 0.12);
 }
 
+.error-text,
+.success-text {
+  margin: 10px 0 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.error-text {
+  color: #fca5a5;
+}
+
+.success-text {
+  color: #86efac;
+}
+
 .alert-item.minor {
   border-color: rgba(34, 197, 94, 0.38);
   box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.12);

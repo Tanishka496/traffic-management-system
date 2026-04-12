@@ -1,14 +1,18 @@
 const db = require("../config/db");
 
-// Add driver
 const addDriver = (driver, callback) => {
-  const sql = "INSERT INTO driver (name, license_number, phone) VALUES (?, ?, ?)";
-  db.query(sql, [driver.name, driver.license_number, driver.phone], callback);
+  const sql =
+    "INSERT INTO driver (name, license_number, phone, address) VALUES (?, ?, ?, ?)";
+  db.query(
+    sql,
+    [driver.name, driver.license_number || null, driver.phone || null, driver.address || null],
+    callback,
+  );
 };
 
-// Get all drivers
 const getDrivers = (callback) => {
-  const sql = "SELECT driver_id AS id, name, license_number, phone, address FROM driver";
+  const sql =
+    "SELECT driver_id, name, license_number, phone, address FROM driver ORDER BY driver_id DESC";
   db.query(sql, callback);
 };
 

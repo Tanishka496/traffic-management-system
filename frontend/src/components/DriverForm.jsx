@@ -1,100 +1,96 @@
-import { useState } from "react";
-import { addDriver } from "../services/driverServices";
+import React, { useState } from 'react';
+import { addDriver } from '../services/driverServices';
 
-const initialDriver = {
-  name: "",
-  license_number: "",
-  phone: ""
-};
-
-function DriverForm({ onDriverAdded }) {
-  const [driver, setDriver] = useState(initialDriver);
-  const [status, setStatus] = useState({ type: "", message: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+const DriverForm = ({ onDriverAdded }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    license_number: '',
+    phone: ''
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleChange = (e) => {
-    setDriver({ ...driver, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setIsSubmitting(true);
-    setStatus({ type: "", message: "" });
+    setIsLoading(true);
+    setError('');
+    setSuccess('');
 
     try {
-      await addDriver(driver);
-      setDriver(initialDriver);
-      setStatus({ type: "success", message: "Driver record added successfully." });
-
+      await addDriver(formData);
+      setSuccess('Driver added successfully!');
+      setFormData({ name: '', license_number: '', phone: '' });
       if (onDriverAdded) {
-        await onDriverAdded();
+        onDriverAdded();
       }
-    } catch (error) {
-      const message = error.response?.data?.message || error.message || "Could not add the driver.";
-
-      setStatus({
-        type: "error",
-        message
-      });
+    } catch (err) {
+      setError('Failed to add driver: ' + (err.response?.data?.message || err.message));
     } finally {
-      setIsSubmitting(false);
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="form-panel">
-      <div className="form-header">
-        <h3>Driver Registration Form</h3>
-      </div>
-
-      <form className="driver-form" onSubmit={handleSubmit}>
-        <div className="field">
-          <label htmlFor="name">Driver name</label>
+    <div className="driver-form-container">
+      <h2 className="form-title">Add New Driver</h2>
+      <form onSubmit={handleSubmit} className="driver-form">
+        <div className="form-group">
+          <label htmlFor="name">Driver Name *</label>
           <input
+            type="text"
             id="name"
             name="name"
-            placeholder="Enter full name"
-            value={driver.name}
+            value={formData.name}
             onChange={handleChange}
+            placeholder="Enter driver's full name"
             required
+            className="form-input"
           />
         </div>
 
-        <div className="field">
-          <label htmlFor="license_number">License number</label>
+        <div className="form-group">
+          <label htmlFor="license_number">License Number *</label>
           <input
+            type="text"
             id="license_number"
             name="license_number"
-            placeholder="Enter license number"
-            value={driver.license_number}
+            value={formData.license_number}
             onChange={handleChange}
+            placeholder="Enter license number"
             required
+            className="form-input"
           />
         </div>
 
-        <div className="field">
-          <label htmlFor="phone">Phone number</label>
+        <div className="form-group">
+          <label htmlFor="phone">Phone Number *</label>
           <input
+            type="tel"
             id="phone"
             name="phone"
-            placeholder="Enter contact number"
-            value={driver.phone}
+            value={formData.phone}
             onChange={handleChange}
+            placeholder="Enter phone number"
             required
+            className="form-input"
           />
         </div>
 
-        <button className="submit-btn" type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Saving record..." : "Add Driver"}
-        </button>
+        {error && <div className="form-error">{error}</div>}
+        {success && <div className="form-success">{success}</div>}
 
-        {status.message ? (
-          <p className={`feedback ${status.type}`}>{status.message}</p>
-        ) : null}
+        <button type="submit" disabled={isLoading} className="form-button">
+          {isLoading ? 'Adding...' : 'Add Driver'}
+        </button>
       </form>
     </div>
   );
-}
+};
 
 export default DriverForm;
