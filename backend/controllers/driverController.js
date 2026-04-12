@@ -1,18 +1,33 @@
 const driverModel = require("../models/driverModel");
-exports.createDriver = (req, res) => {
-  const driver = req.body;
-  driverModel.addDriver(driver, (err, result) => {
+
+exports.addDriver = (req, res) => {
+  const driverData = req.body;
+
+  if (!driverData.name) {
+    return res.status(400).json({ message: "name is required" });
+  }
+
+  driverModel.addDriver(driverData, (err, result) => {
     if (err) {
-      return res.status(500).json({ message: "Error adding driver" });
+      return res
+        .status(500)
+        .json({ message: "Error adding driver", error: err.message });
     }
-    res.json({ message: "Driver added successfully", id: result.insertId });
+
+    return res
+      .status(201)
+      .json({ message: "Driver added successfully", id: result.insertId });
   });
 };
-exports.getDrivers = (req, res) => {
+
+exports.getDrivers = (_req, res) => {
   driverModel.getDrivers((err, result) => {
     if (err) {
-      return res.status(500).json({ message: "Error fetching drivers" });
+      return res
+        .status(500)
+        .json({ message: "Error fetching drivers", error: err.message });
     }
-    res.json(result);
+
+    return res.json(result);
   });
 };

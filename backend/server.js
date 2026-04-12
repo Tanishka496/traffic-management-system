@@ -7,6 +7,7 @@ const challanRoutes = require("./routes/challanRoutes");
 const driverRoutes = require("./routes/driverRoutes");
 const violationRoutes = require("./routes/violationRoutes");
 const vehicleRoutes = require("./routes/vehicleRoutes");
+const officerRoutes = require("./routes/officerRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const authRoutes = require("./routes/authRoutes");
@@ -20,6 +21,7 @@ app.use("/api/challans", challanRoutes);
 app.use("/api/drivers", driverRoutes);
 app.use("/api/violations", violationRoutes);
 app.use("/api/vehicles", vehicleRoutes);
+app.use("/api/officers", officerRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/auth", authRoutes);
@@ -27,6 +29,7 @@ app.use("/api/auth", authRoutes);
 // Keep original module paths so friend modules run without logic changes.
 app.use("/drivers", driverRoutes);
 app.use("/violations", violationRoutes);
+app.use("/officers", officerRoutes);
 
 const PORT = process.env.PORT || 5000;
 

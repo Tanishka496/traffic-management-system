@@ -5,4 +5,5 @@ const DASHBOARD_API = "/api/dashboard/summary";
 
 export const addPayment = (payload) => axios.post(PAYMENT_API, payload);
 export const getPayments = () => axios.get(PAYMENT_API);
+export const getPaymentReport = () => axios.get(`${PAYMENT_API}/report`);
 export const getDashboardSummary = () => axios.get(DASHBOARD_API);

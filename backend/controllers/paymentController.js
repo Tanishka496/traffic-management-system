@@ -9,14 +9,30 @@ exports.createPayment = (req, res) => {
       .json({ message: "challan_id, amount and payment_method are required" });
   }
 
-  paymentModel.addPayment(req.body, (err, result) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
+  paymentModel.getChallanById(challan_id, (challanErr, challanRows) => {
+    if (challanErr) {
+      return res.status(500).json({ error: challanErr.message });
     }
 
-    return res
-      .status(201)
-      .json({ message: "Payment recorded successfully", id: result.insertId });
+    if (!challanRows.length) {
+      return res.status(400).json({ message: `Invalid challan_id: ${challan_id}` });
+    }
+
+    paymentModel.addPayment(req.body, (err, result) => {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+
+      paymentModel.markChallanAsPaid(challan_id, (markErr) => {
+        if (markErr) {
+          return res.status(500).json({ error: markErr.message });
+        }
+
+        return res
+          .status(201)
+          .json({ message: "Payment recorded successfully", id: result.insertId });
+      });
+    });
   });
 };
 
@@ -37,5 +53,15 @@ exports.dashboardSummary = (_req, res) => {
     }
 
     return res.json(result[0]);
+  });
+};
+
+exports.paymentReport = (_req, res) => {
+  paymentModel.getPaymentReport((err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+
+    return res.json(result);
   });
 };
